@@ -1,4 +1,5 @@
-# Project Template: React/Rails API
+######
+Use tailwind for CSS and action mailer for the email part
 
 ## Description
 
