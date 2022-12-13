@@ -1,14 +1,16 @@
 import React from 'react'
+import Grid  from '@mui/material/Grid'
+import LocationCard from './LocationCard'
 
-const LocationList = () => {
+const LocationList = ({locations}) => {
 
-  const locationCards = hospitals.map(hospital => <ul key={hospital.id}><HospitalCard id={hospital.id} hospital={hospital}/> </ul>)
+  const locationCards = locations.map(location => <ul key={location.id}><LocationCard id={location.id} location={location}/> </ul>)
 
   return (
     <div>
-      <h2 align="center">Hospitals</h2>
+      <h2 align="center">Locations</h2>
         <Grid container spacing={2}>
-          {hospitalCards}
+          {locationCards}
         </Grid>
     </div>
   )
