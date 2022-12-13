@@ -14,10 +14,11 @@ const LoginForm = ({setShowLogin}) => {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({username, password}),
         })
-        .then(resp => resp.json())
-        .then (currentUser => {
-            setUser(currentUser)
-        })
+        .then((response)=> {
+            if (response.ok) {
+              response.json().then((u) => setUser(u))
+            }
+          })
     }
 
   return (

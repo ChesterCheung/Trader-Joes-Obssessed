@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from './components/Home';
 import NavBar from './components/NavBar';
@@ -10,8 +10,14 @@ import MyReviewList from './components/MyReviewList';
 import LocationList from './components/LocationList';
 
 const App = () => {
-
   const {user} = useContext(UserContext)
+  const [locations, setLocations] = useState([])
+
+  useEffect(() => {
+    fetch("/locations")
+    .then(resp => resp.json())
+    .then(data => setLocations(data))
+  }, [])
 
   if (!user) return <Login />
 
