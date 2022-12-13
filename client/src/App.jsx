@@ -1,9 +1,20 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from './components/Home';
 import NavBar from './components/NavBar';
+import { UserContext } from './context/user';
+import Login from './components/Login';
+import ProductList from './components/ProductList';
+import MyProductList from './components/MyProductList';
+import MyReviewList from './components/MyReviewList';
+import LocationList from './components/LocationList';
 
 const App = () => {
+
+  const {user} = useContext(UserContext)
+
+  if (!user) return <Login />
+
   return (
     <div>
       <Router>
