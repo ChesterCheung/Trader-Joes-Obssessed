@@ -8,7 +8,7 @@ const LocationList = ({locations}) => {
 
   return (
     <div>
-      <h2 align="center">Locations</h2>
+      <h2 align="center">Trader Joe's Locations</h2>
         <Grid container spacing={2}>
           {locationCards}
         </Grid>

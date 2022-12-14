@@ -8,6 +8,7 @@ import ProductList from './components/ProductList';
 import MyProductList from './components/MyProductList';
 import MyReviewList from './components/MyReviewList';
 import LocationList from './components/LocationList';
+import AddLocation from './components/AddLocation';
 
 const App = () => {
   const {user} = useContext(UserContext)
@@ -18,6 +19,10 @@ const App = () => {
     .then(resp => resp.json())
     .then(data => setLocations(data))
   }, [])
+
+  const addLocation = (location) => {
+    setLocations([...locations, setLocations])
+  }
 
   if (!user) return <Login />
 
@@ -31,6 +36,7 @@ const App = () => {
           <Route path="/myproducts" element={<MyProductList />}/>
           <Route path="/myreviews" element={<MyReviewList />}/>
           <Route path="/locations" element={<LocationList locations={locations}/>}/>
+          <Route path="/addlocations" element={<AddLocation addLocation={addLocation} locations={locations}/>}/>
         </Routes>
       </Router>
     </div>
