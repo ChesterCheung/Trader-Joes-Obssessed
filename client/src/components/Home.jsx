@@ -1,8 +1,10 @@
 import React from 'react'
+import ProductCard from './ProductCard'
+
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div><ProductCard> </ProductCard> </div>
   )
 }
 

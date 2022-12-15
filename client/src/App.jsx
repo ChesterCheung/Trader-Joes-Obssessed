@@ -21,7 +21,7 @@ const App = () => {
   }, [])
 
   const addLocation = (location) => {
-    setLocations([...locations, setLocations])
+    setLocations([...locations, location])
   }
 
   if (!user) return <Login />
