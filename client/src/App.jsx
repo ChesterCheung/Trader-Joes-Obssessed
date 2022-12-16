@@ -5,7 +5,6 @@ import NavBar from './components/NavBar';
 import { UserContext } from './context/user';
 import Login from './components/Login';
 import ProductList from './components/ProductList';
-import MyProductList from './components/MyProductList';
 import MyReviewList from './components/MyReviewList';
 import LocationList from './components/LocationList';
 import AddLocation from './components/AddLocation';
@@ -13,12 +12,19 @@ import AddLocation from './components/AddLocation';
 const App = () => {
   const {user} = useContext(UserContext)
   const [locations, setLocations] = useState([])
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
+   
     fetch("/locations")
     .then(resp => resp.json())
     .then(data => setLocations(data))
+    
+    fetch("/products")
+   .then(resp => resp.json())
+   .then(data => setProducts(data))
   }, [])
+
 
   const addLocation = (location) => {
     setLocations([...locations, location])
@@ -32,8 +38,7 @@ const App = () => {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="/products" element={<ProductList/>}/>
-          <Route path="/myproducts" element={<MyProductList />}/>
+          <Route path="/products" element={<ProductList products={products} />}/>
           <Route path="/myreviews" element={<MyReviewList />}/>
           <Route path="/locations" element={<LocationList locations={locations}/>}/>
           <Route path="/addlocations" element={<AddLocation addLocation={addLocation} locations={locations}/>}/>

@@ -3,9 +3,8 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { useEffect } from 'react';
 
-const ProductCard = () => {
+const ProductCard = ({product}) => {
    
     return (
         <div>
@@ -14,21 +13,21 @@ const ProductCard = () => {
                     <CardMedia
                         component="img"
                         height="375"
-                        image="https://www.traderjoes.com/content/dam/trjo/products/m21002/74627.png/jcr:content/renditions/webp-1280.webp"
+                        image={product.url}
                         alt="green iguana"
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                        Name
+                        {product.name}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                        Category
+                        {product.category}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                        Price
+                        ${product.price}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                        Location
+                        {product.locations.neighborhood}
                         </Typography>
                     </CardContent>
                     </Card>
