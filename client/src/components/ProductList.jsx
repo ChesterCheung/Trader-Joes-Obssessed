@@ -1,5 +1,6 @@
 import React from 'react'
 import ProductCard from './ProductCard'
+import Grid from '@mui/material/Grid';
 
 const ProductList = ({products}) => {
 
@@ -8,7 +9,9 @@ const ProductList = ({products}) => {
   return (
     <div>
       <h2> Products</h2>
+      <Grid container spacing={2}>
       {productCards}  
+      </Grid>
     </div>
   )
 }

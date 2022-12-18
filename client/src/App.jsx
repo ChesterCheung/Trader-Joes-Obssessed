@@ -8,12 +8,14 @@ import ProductList from './components/ProductList';
 import MyReviewList from './components/MyReviewList';
 import LocationList from './components/LocationList';
 import AddLocation from './components/AddLocation';
+import ProductReviewPage from './components/ProductReviewPage';
+
 
 const App = () => {
   const {user} = useContext(UserContext)
   const [locations, setLocations] = useState([])
   const [products, setProducts] = useState([])
-
+  
   useEffect(() => {
    
     fetch("/locations")
@@ -39,6 +41,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/products" element={<ProductList products={products} />}/>
+          <Route path="/products/:id" element={<ProductReviewPage />}/>
           <Route path="/myreviews" element={<MyReviewList />}/>
           <Route path="/locations" element={<LocationList locations={locations}/>}/>
           <Route path="/addlocations" element={<AddLocation addLocation={addLocation} locations={locations}/>}/>
