@@ -1,9 +1,9 @@
 
 puts "Seeding"
 
-user1 = User.create!(username: "chester", password: "123")
-user2 = User.create!(username: "melinda", password: "123")
-user3 = User.create!(username: "simon", password: "123")
+user1 = User.create!(username: "Chester", password: "123")
+user2 = User.create!(username: "Melinda", password: "123")
+user3 = User.create!(username: "Simon", password: "123")
 
 location1 = Location.create!(neighborhood: "Downtown Brooklyn", city: "Brooklyn" )
 location2 = Location.create!(neighborhood: "Union Square", city: "Manhattan" )
@@ -27,5 +27,9 @@ review6 = Review.create!(comments: "meh, hot sauce is decent", rating: 3, user_i
 review6 = Review.create!(comments: "It was okay", rating: 3, user_id: user3.id, product_id: product3.id)
 
 productLocation1 = ProductLocation.create!(product_id: product1.id, location_id: location1.id)
+productLocation2 = ProductLocation.create!(product_id: product2.id, location_id: location2.id)
+productLocation3 = ProductLocation.create!(product_id: product3.id, location_id: location3.id)
+productLocation4 = ProductLocation.create!(product_id: product4.id, location_id: location2.id)
+productLocation5 = ProductLocation.create!(product_id: product5.id, location_id: location4.id)
 
 puts "Done Seeding"

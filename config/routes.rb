@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   
-  resources :product_locations
+
   resources :reviews
   resources :products
   resources :locations
-  resources :users
 
   ##User Routes
   post "/signup", to: "users#create"
@@ -21,6 +20,12 @@ Rails.application.routes.draw do
 
   ##Product Routes
   get "/products", to: "products#index"
+  get "/products/:id", to: "products#show"
+
+  ##Review Routes
+  get "/reviews", to: "reviews#index"
+ 
+
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
