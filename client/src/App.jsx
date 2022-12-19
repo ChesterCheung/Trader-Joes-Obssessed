@@ -16,7 +16,7 @@ const App = () => {
   const [locations, setLocations] = useState([])
   const [products, setProducts] = useState([])
   const [reviews, setReviews] = useState([])
-  
+  const [updatedReview, setUpdatedReview] = useState(null)
 
   useEffect(() => {
    
@@ -47,6 +47,18 @@ const App = () => {
     setReviews([...reviews, review])
   }
 
+  const editReview = (updatedReview) => {
+    const update = reviews.map(review => {
+      if (review.id === updatedReview.id){
+        return updatedReview
+      } else {
+        return review
+       }
+    })
+    setReviews(update)
+    setUpdatedReview(true)
+  }
+
   if (!user) return <Login />
 
   return (
@@ -60,7 +72,7 @@ const App = () => {
           <Route path="/addproduct" element={<ProductForm locations={locations} addProduct={addProduct} />}/>
           <Route path="/locations" element={<LocationList locations={locations}/>}/>
           <Route path="/addlocations" element={<AddLocation addLocation={addLocation} locations={locations}/>}/>
-          <Route path="/myreviews" element={<MyReviewList />}/>
+          <Route path="/myreviews" element={<MyReviewList editReview={editReview} updatedReview={updatedReview} setUpdatedReview={setUpdatedReview}/>}/>
         </Routes>
       </Router>
     </div>

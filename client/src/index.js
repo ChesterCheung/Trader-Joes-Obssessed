@@ -4,14 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from './context/user';
-import { ReviewProvider } from './context/review';
+// import { ReviewProvider } from './context/review';
 
 ReactDOM.render(
   <React.StrictMode>
     <UserProvider>
-    <ReviewProvider>
+    {/* <ReviewProvider> */}
       <App />
-    </ReviewProvider>
+    {/* </ReviewProvider> */}
     </UserProvider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -44,6 +44,11 @@ class ReviewsController < ApplicationController
         end
     end
 
+    def user_reviews
+        user = User.find_by(id: session[:user_id])
+        render json: user.reviews
+    end
+
     private
     def review_params
         params.permit(:id, :comments, :rating, :product_id, :user_id )

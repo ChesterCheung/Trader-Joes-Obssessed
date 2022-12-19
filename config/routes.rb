@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   ##Review Routes
   get "/reviews", to: "reviews#index"
- 
+  get "/myreviews", to: "reviews#user_reviews"
 
 
   # Routing logic: fallback requests for React Router.

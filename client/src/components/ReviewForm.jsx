@@ -9,14 +9,12 @@ const ReviewForm = ({addReview}) => {
     const [comment, setComment] = useState("")
     const [rating, setRating] = useState("")
     const { id } = useParams()
-  
 
       const handleChange = (event) => {
         setRating(event.target.value);
       };
 
     const formSubmit = (e) => {
-        e.preventDefault()
           fetch("/reviews", {
               method:"POST",
               headers: {"Content-Type": "application/json",},
