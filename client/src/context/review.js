@@ -5,7 +5,7 @@ const ReviewContext = React.createContext()
 const ReviewProvider = ({children}) => {
 
     const [reviews, setReviews] = useState([])
-
+    
     useEffect(() =>{
         fetch("/reviews").then((response)=> {
             if (response.ok) {
@@ -14,10 +14,11 @@ const ReviewProvider = ({children}) => {
           })
     }, [])
 
-  return (
-        <ReviewContext.Provider value={{reviews, setReviews}}>
-            {children}
-        </ReviewContext.Provider>
+
+return (
+    <ReviewContext.Provider value={{reviews, setReviews}}>
+        {children}
+    </ReviewContext.Provider>
 
   );
 }

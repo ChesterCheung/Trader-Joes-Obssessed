@@ -21,7 +21,7 @@ const NavBar = () => {
                 <p>Welcome {user.username}</p>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/products">View Products</Link></li>
-                <li><Link to="/myproducts">My Products</Link></li>
+                <li><Link to="/addproduct">Add Product</Link></li>
                 <li><Link to="/myreviews">My Reviews</Link></li>
                 <li><Link to="/locations">View Locations</Link></li>
                 <li><Link to="/addlocations">Add Locations</Link></li>

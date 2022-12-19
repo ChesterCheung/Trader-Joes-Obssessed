@@ -31,7 +31,7 @@ const ProductCard = ({product}) => {
                     ${product.price}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                    {product.locations[0].neighborhood}
+                    {product.locations[0]?.neighborhood}
                     </Typography>
                 </CardContent>
                 <CardActions>

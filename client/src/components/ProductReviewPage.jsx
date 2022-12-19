@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import ProductReviewList from './ProductReviewList';
 
 
-const ProductReviewPage = () => {
+const ProductReviewPage = ({addReview}) => {
   const [product, setProduct] = useState([])
   const [allUsers, setAllUsers] = useState([])
   const { id } = useParams()
@@ -22,7 +22,8 @@ const ProductReviewPage = () => {
     .then(resp => resp.json())
     .then(data => setAllUsers(data))
     
-  },[id])
+  }, [id])
+
 
   return (
     <div>
@@ -51,7 +52,7 @@ const ProductReviewPage = () => {
           </CardContent>
           </Card>
       </div>
-      <ProductReviewList allUsers={allUsers} product={product} />
+      <ProductReviewList addReview={addReview} allUsers={allUsers} product={product} />
     </div>
   )
 }
