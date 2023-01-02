@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
     def create
         product = Product.create!(product_params)
-        render json: product, status: :ok
+        render json: product, status: :created
     end
 
     def index

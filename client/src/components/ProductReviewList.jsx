@@ -11,7 +11,7 @@ const ProductReviewList = ({product, allUsers, addReview}) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '5vh',
+        height: '40vh',
         }
 
   return (

@@ -17,13 +17,17 @@ class UsersController < ApplicationController
   
    def create
       user = User.create!(user_params)
-      render json: user, status: :created
+      session[:user_id] = user.id
+      if user.save
+        UserMailer.welcome_email(user).deliver_now
+      end 
+        render json: user, status: :created
    end
   
    private
   
     def user_params
-        params.permit(:username, :password, :password_confirmation )
+        params.permit(:username, :password, :password_confirmation, :email)
     end
   
     def render_unprocessable_entity_response(exception)

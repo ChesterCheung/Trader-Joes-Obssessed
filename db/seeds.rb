@@ -1,9 +1,9 @@
 
 puts "Seeding"
 
-user1 = User.create!(username: "Chester", password: "123")
-user2 = User.create!(username: "Melinda", password: "123")
-user3 = User.create!(username: "Simon", password: "123")
+user1 = User.create!(username: "Chester", password: "123", email: "cheung319@gmail.com")
+user2 = User.create!(username: "Melinda", password: "123", email: "chestercheung@outlook.com")
+user3 = User.create!(username: "Simon", password: "123", email: "cheung319@yahoo.com")
 
 location1 = Location.create!(neighborhood: "Downtown Brooklyn", city: "Brooklyn" )
 location2 = Location.create!(neighborhood: "Union Square", city: "Manhattan" )
@@ -13,7 +13,7 @@ location4 = Location.create!(neighborhood: "Forrest Hills", city: "Queens" )
 product1 = Product.create!(name: "Salsa Verde Flavored Corn Chips", category: "Snacks", price: 3, location_id: location1.id, url: "https://www.traderjoes.com/content/dam/trjo/products/m21001/73152.png/jcr:content/renditions/webp-1280.webp")
 product2 = Product.create!(name: "Onion Rings", category: "Frozen Food", price: 6, location_id: location2.id, url: "https://www.traderjoes.com/content/dam/trjo/products/m21001/72136.png/jcr:content/renditions/webp-1280.webp")
 product3 = Product.create!(name: "Almond Butter Filled Pretzel Nuggets", category: "Snacks", price: 6, location_id: location3.id, url: "https://www.traderjoes.com/content/dam/trjo/products/m21001/70721.png/jcr:content/renditions/webp-1280.webp")
-product4 = Product.create!(name: "Habanero Hot Sauce ", category: "Condiments", price: 3, location_id: location4.id, url:"https://www.traderjoes.com/content/dam/trjo/products/m21002/74627.png/jcr:content/renditions/webp-1280.webp")
+product4 = Product.create!(name: "Habanero Hot Sauce ", category: "Condiments", price: 3, location_id: location4.id, url: "https://www.traderjoes.com/content/dam/trjo/products/m20403/96159.png/jcr:content/renditions/webp-1280.webp")
 product5 = Product.create!(name: "Organic Cacio E Pepe Puffs", category: "Snacks", price: 4, location_id: location1.id, url: "https://www.traderjoes.com/content/dam/trjo/products/m21001/71323.png/jcr:content/renditions/webp-1280.webp")
 
 review1 = Review.create!(comments: "Crazy addictive, so good", rating: 5, user_id: user1.id, product_id: product1.id)

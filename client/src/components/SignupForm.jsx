@@ -5,18 +5,22 @@ const SignupForm = ({setShowLogin}) => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
+    const [email, setEmail] = useState("")
     const {setUser} = useContext(UserContext)
     const style ={display: "flex", justifyContent: "center", alignItems: "center"}
-
+    
     const handleSubmit = (e)=>{
         e.preventDefault()
         fetch("/signup", {
             method:"POST",
             headers: {"Content-Type": "application/json",},
-            body: JSON.stringify({username, password, password_confirmation: passwordConfirmation}),
+            body: JSON.stringify({username, password, password_confirmation: passwordConfirmation, email}),
         })
-        .then((r) => r.json())
-        .then((user)=> setUser(user.username))
+        .then((response) => {
+            if (response.ok) {
+                response.json().then((u) => setUser(u))
+            }
+        })
     }
 
   return (
@@ -26,6 +30,10 @@ const SignupForm = ({setShowLogin}) => {
             <div style={style}>
                 <label>Username:</label>
                 <input type="text" id="username" value={username} onChange={e => setUsername(e.target.value)}/>
+            </div>
+            <div style={style}>
+                <label>Email:</label>
+                <input type="text" id="email" value={email} onChange={e => setEmail(e.target.value)}/>
             </div>
             <div style={style}>
                 <label>Password:</label>
