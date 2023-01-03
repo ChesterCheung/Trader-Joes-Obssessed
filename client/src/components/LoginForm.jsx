@@ -6,6 +6,15 @@ const LoginForm = ({setShowLogin}) => {
     const [password, setPassword] = useState("")
     const {setUser} = useContext(UserContext)
     const style ={display: "flex", justifyContent: "center", alignItems: "center"}
+    const myStyle={
+        backgroundImage: 
+          "url('https://parktacular.b-cdn.net/wp-content/uploads/2016/01/Traderjoes.png')",
+        height:'100vh',
+        marginTop:'-15px',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+      };
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -22,7 +31,7 @@ const LoginForm = ({setShowLogin}) => {
     }
 
   return (
-        <div className="container">
+        <div className="container" style={myStyle} >
             <h1 style={style}>Login</h1>
             <form onSubmit={handleSubmit}>
                 <div style={style}>

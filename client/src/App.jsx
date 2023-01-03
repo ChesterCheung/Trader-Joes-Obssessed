@@ -18,6 +18,16 @@ const App = () => {
   const [reviews, setReviews] = useState([])
   const [updatedReview, setUpdatedReview] = useState(null)
 
+  const myStyle={
+    backgroundImage: 
+      "url('https://parktacular.b-cdn.net/wp-content/uploads/2016/01/Traderjoes.png')",
+    height:'100vh',
+    marginTop:'-15px',
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+  };
+
   useEffect(() => {
    
     fetch("/locations")
@@ -59,22 +69,24 @@ const App = () => {
     setUpdatedReview(true)
   }
 
-  if (!user) return <Login />
+  if (!user) return <Login myStyle={myStyle} />
 
   return (
-    <div>
-      <Router>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="/products" element={<ProductList products={products} />}/>
-          <Route path="/products/:id" element={<ProductReviewPage addReview={addReview} />}/>
-          <Route path="/addproduct" element={<ProductForm locations={locations} addProduct={addProduct} />}/>
-          <Route path="/locations" element={<LocationList locations={locations}/>}/>
-          <Route path="/addlocations" element={<AddLocation addLocation={addLocation} locations={locations}/>}/>
-          <Route path="/myreviews" element={<MyReviewList editReview={editReview} updatedReview={updatedReview} setUpdatedReview={setUpdatedReview}/>}/>
-        </Routes>
-      </Router>
+    <div className="container" >
+      <div style={myStyle}>
+        <Router>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />}/>
+            <Route path="/products" element={<ProductList products={products} />}/>
+            <Route path="/products/:id" element={<ProductReviewPage addReview={addReview} />}/>
+            <Route path="/addproduct" element={<ProductForm locations={locations} addProduct={addProduct} />}/>
+            <Route path="/locations" element={<LocationList locations={locations}/>}/>
+            <Route path="/addlocations" element={<AddLocation addLocation={addLocation} locations={locations}/>}/>
+            <Route path="/myreviews" element={<MyReviewList editReview={editReview} updatedReview={updatedReview} setUpdatedReview={setUpdatedReview}/>}/>
+          </Routes>
+        </Router>
+      </div>
     </div>
   )
 }
