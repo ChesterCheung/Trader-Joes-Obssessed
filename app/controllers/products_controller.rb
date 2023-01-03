@@ -2,6 +2,9 @@ class ProductsController < ApplicationController
 
     def create
         product = Product.create!(product_params)
+        if product.save
+            ProductMailer.new_product(product).deliver_now
+        end
         render json: product, status: :created
     end
 
