@@ -15,6 +15,7 @@ const ReviewForm = ({addReview}) => {
       };
 
     const formSubmit = (e) => {
+          e.preventDefault()
           fetch("/reviews", {
               method:"POST",
               headers: {"Content-Type": "application/json",},
