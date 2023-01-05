@@ -11,7 +11,7 @@ const ProductReviewList = ({product, allUsers, addReview}) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '40vh',
+        height: '15vh',
         }
 
   return (
@@ -19,13 +19,17 @@ const ProductReviewList = ({product, allUsers, addReview}) => {
         <div style={styles}>
             <h2>Reviews</h2>
         </div>
+        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <button onClick={() => setReviewForm(rev => !rev)} > {reviewForm ? "Hide" : "Write a Review"} </button>
+        </div>
+        <div>
+            {reviewForm ? <ReviewForm addReview={addReview} /> : null}
+        </div>
         <div >
             <div>
                 {productReviews}
             </div>
         </div>
-        <button onClick={() => setReviewForm(rev => !rev)} > {reviewForm ? "Hide" : "Write a Review"} </button>
-        {reviewForm ? <ReviewForm addReview={addReview} /> : null}
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import RatingOption from './RatingOption'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -9,6 +9,7 @@ const ReviewForm = ({addReview}) => {
     const [comment, setComment] = useState("")
     const [rating, setRating] = useState("")
     const { id } = useParams()
+    const navigate = useNavigate()
 
       const handleChange = (event) => {
         setRating(event.target.value);
@@ -27,6 +28,7 @@ const ReviewForm = ({addReview}) => {
           })
           .then((r) => r.json())
           .then((data)=> addReview(data))
+          navigate("/myreviews")
       }
 
     return (
