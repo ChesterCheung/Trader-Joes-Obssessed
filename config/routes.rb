@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-
+  resources :product_locations
   resources :reviews
   resources :products
   resources :locations

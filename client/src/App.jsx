@@ -78,7 +78,7 @@ const App = () => {
           <NavBar />
           <Routes>
             <Route path="/" element={<Home />}/>
-            <Route path="/products" element={<ProductList products={products} />}/>
+            <Route path="/products" element={<ProductList locations={locations} products={products} />}/>
             <Route path="/products/:id" element={<ProductReviewPage reviews={reviews} addReview={addReview} />}/>
             <Route path="/addproduct" element={<ProductForm locations={locations} addProduct={addProduct} />}/>
             <Route path="/locations" element={<LocationList locations={locations}/>}/>

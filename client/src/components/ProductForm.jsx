@@ -61,7 +61,7 @@ const ProductForm = ({addProduct, locations}) => {
               onChange={(e) => setUrl(e.target.value)}
               value={url}
               />
-              <LocationOptions locations={locations} setLocation={setLocation}/>
+            <LocationOptions locations={locations} location={location} setLocation={setLocation}/>
           </Box>
         <input type="submit" value="Add"></input>
         </form>

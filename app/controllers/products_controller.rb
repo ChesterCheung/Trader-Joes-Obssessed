@@ -1,12 +1,23 @@
 class ProductsController < ApplicationController
 
     def create
+        user = User.find_by(id: session[:user_id])
         product = Product.create!(product_params)
-        if product.save
+        createProductLocation = product.product_locations.build(location_id: params[:location_id])
+        if user.id && product.save && createProductLocation.save
             ProductMailer.new_product(product).deliver_now
         end
         render json: product, status: :created
     end
+
+    # def create
+    #     location = Location.find_by(location_id: params[:location_id])
+    #     product = location.product.create!(product_params)
+    #     if product.save && createProductLocation.save
+    #         ProductMailer.new_product(product).deliver_now
+    #     end
+    #     render json: product, status: :created
+    # end
 
     def index
         products = Product.all
