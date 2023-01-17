@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
         if userCreate.id && createReview.save
             render json: createReview, status: :ok
         else
-            render json: {error: "Something went wrong"}, status: :unprocessable_entity
+            render json: {error: "You can only leave one review!"}, status: :unprocessable_entity
         end
     end
 
