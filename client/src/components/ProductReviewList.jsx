@@ -1,5 +1,6 @@
 import * as React from "react";
-import ProductReviewCard from './ProductReviewCard'
+import ProductReviewCard from './ProductReviewCard';
+import Box from '@mui/material/Box';
 import { useState } from "react";
 import ReviewForm from "./ReviewForm";
 
@@ -13,6 +14,7 @@ const ProductReviewList = ({product, allUsers, addReview}) => {
         justifyContent: 'center',
         height: '15vh',
         }
+        
 
   return (
     <div >
@@ -27,7 +29,9 @@ const ProductReviewList = ({product, allUsers, addReview}) => {
         </div>
         <div >
             <div>
-                {productReviews}
+                <Box sx={{ width: '100%' }}>
+                       {productReviews}
+                </Box>
             </div>
         </div>
     </div>

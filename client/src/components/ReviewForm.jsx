@@ -31,6 +31,26 @@ const ReviewForm = ({addReview}) => {
           navigate("/myreviews")
       }
 
+      // const formSubmit = (e) => {
+      //   e.preventDefault();
+      //   fetch("/reviews", {
+      //     method:"POST",
+      //     headers: {"Content-Type": "application/json",},
+      //     body: JSON.stringify({
+      //       comments: comment,
+      //       rating: rating,
+      //       product_id: id
+      //       }),
+      //    }).then((response) => {
+      //     if (response.ok) {
+      //       response.json().then((data) => addReview(data));
+      //       navigate("/myreviews")
+      //     } else {
+      //       response.json().then((errorData) => setErrors(errorData.errors));
+      //     }
+      //   });
+      // }
+
     return (
     <div>
         <form align="center" onSubmit={formSubmit}>

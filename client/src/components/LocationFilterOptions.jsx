@@ -5,10 +5,10 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 
-export default function LocationFilterOptions({filter, setFilter, locations}) {
+export default function LocationFilterOptions({filter, setFilter, locations, handleResetFalse}) {
 
   const selectOptions = locations.map((location) => <MenuItem key={location.id} location={location} value={location.id}>{location.neighborhood}</MenuItem>)
-
+  
 
   return (
     <Box sx={{ minWidth: 120 }}>
@@ -19,9 +19,13 @@ export default function LocationFilterOptions({filter, setFilter, locations}) {
           id="filter"
           value={filter}
           label="filter"
-          onChange={(e) => setFilter(e.target.value)}
+          onChange={(e) => {
+            setFilter(e.target.value)
+            handleResetFalse()
+          }}
         >
           {selectOptions}
+          {/* <MenuItem value={products}>All</MenuItem> */}
         </Select>
         </FormControl>
     </Box>

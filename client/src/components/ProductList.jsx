@@ -4,37 +4,48 @@ import Grid from '@mui/material/Grid';
 import Search from './Search';
 import LocationFilterOptions from './LocationFilterOptions';
 
+
 const ProductList = ({products, locations}) => {
     const [searchTerm, setSearchTerm] = useState("")
-    const [filter, setFilter] = useState("Forrest Hills")
+    const [filter, setFilter] = useState(products)
+    const [reset, setReset] = useState(false)
 
-    const filteredLocation = products.filter((prod) => {
-      if (prod.locations[0]?.neighborhood === filter) {
-        return filteredLocation
-      } else {
-        return products
-      }
-    })
+    // const finalDisplay = products.filter(() => {
+    //   if (filter === "All") {
+    //     return products
+    //   } else {
+    //     return filteredLocation
+    //   }
+    // })
 
-    // const filteredLocation = products.filter(
-    //   (product) => product.locations[0]?.neighborhood === filter
-    // );
+    const handleResetTrue = () => setReset(true) 
+    const handleResetFalse = () => setReset(false) 
 
-    const productsDisplay = products.filter((prod) => 
+
+    const filteredLocation = products.filter(
+      (product) => product.locations[0]?.id === filter
+    );
+
+    const resetLocation = products.filter((prod) => 
+    prod.name.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+ 
+    const productsDisplay = filteredLocation.filter((prod) => 
       prod.name.toLowerCase().includes(searchTerm.toLowerCase())
     )
 
     const productCards = productsDisplay.map(product => <ul key={product.id}><ProductCard product={product}/></ul>)
-    
-  
 
+    const resetCards = resetLocation.map(product => <ul key={product.id}><ProductCard product={product}/></ul>)
+    
   return (
     <div>
       <h2 align="center"> Products</h2>
-      <div align="center"><LocationFilterOptions align="center" setFilter={setFilter} filter={filter} locations={locations} /></div>
+      <div align="center"><LocationFilterOptions handleResetFalse={handleResetFalse} align="center" products={products} setFilter={setFilter} filter={filter} locations={locations} /></div>
       <Search align="center" searchTerm={searchTerm} onChangeSearch={setSearchTerm} />
+      <div align="center"><button onClick={handleResetTrue}>View All Products</button></div>
       <Grid container spacing={2}>
-      {productCards}  
+      {reset ? resetCards : productCards}  
       </Grid>
     </div>
   )
